@@ -144,12 +144,15 @@ textarea.mono{font-family:ui-monospace,Menlo,monospace;font-size:12px;min-height
 .day.pred .n{border:1.5px dashed var(--berry);color:var(--berry)}
 .day.per .n{background:var(--berry);color:#fff}
 .day.per.flow-l .n{background:color-mix(in srgb,var(--berry) 62%,var(--surface))}
-.day.today .n{outline:1.5px solid var(--ink);outline-offset:2px}
+.day.today .n{font-weight:700;background:var(--ink);color:var(--bg)}
+.day.today.fert .n,.day.today.ov .n{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--sea)}
+.day.today.per .n{background:var(--berry);color:#fff;box-shadow:0 0 0 2.5px var(--bg),0 0 0 5px var(--ink)}
 .day.sym::after{content:'';position:absolute;bottom:1px;left:50%;transform:translateX(-50%);width:4px;height:4px;border-radius:50%;background:var(--mute)}
 .day.sym.per::after{background:var(--berry)}
 .legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:18px;font-size:13px;color:var(--ink-2)}
 .legend i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:-1px}
 .legend .l-per{background:var(--berry)}
+.legend .l-td{background:var(--ink)}
 .legend .l-pred{border:1.5px dashed var(--berry)}
 .legend .l-fert{background:var(--sea-soft)}
 .legend .l-ov{box-shadow:inset 0 0 0 2px var(--sea)}
@@ -299,6 +302,7 @@ ol.steps li{margin:4px 0}
     <div class="wk"><span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span></div>
     <div class="grid" id="calGrid"></div>
     <div class="legend">
+      <span><i class="l-td"></i>오늘</span>
       <span><i class="l-per"></i>생리</span>
       <span><i class="l-pred"></i>예정</span>
       <span id="legFert"><i class="l-fert"></i>배란기</span>
