@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Lune">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#F6F4F9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#15131E" media="(prefers-color-scheme: dark)">
+<title>Lune</title>
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAACWklEQVR42u3czY2CYBSGUSQ2wpYG3LKxC8uzCyqgKtzrzkC4P+eU8OWZN5dJZm7ztOwDFDF6AgQNggZBg6ARNAgaBA2CBkEjaBA0CBoEDYJG0CBoEDQIGgSNoEHQIGgQNAgaQYOgQdAgaBA0ggZBg6BB0CBoBA2CBkGns63vYVvfHuJCd0/wf7zfHs+XhxF07ojFLOgyEYtZ0GUiFrOgS4UsZkGXCVnMcY1iFrOFbhqymC20mLHQ0UIWs4UWM4KOGDOCLhWzdXZDl1llMVtoMSNo9zKCPpF1FrR1RtARY7bOgrbMCDpizNZZ0CBo64yg3c04OayzoK0zghYzgnZu0Dto64yFRtDWGUG7nxE0NAzauYGFRtAg6KTnhg9CQYOgQdAnnxsIGgQNggZBQ/CgfRBioRG0J0DQIGgQNAgaQbfj14KCBkGDoEHQ0DxoH4aCBkFD+6D9mwEstDta0J4AQYOgnR00D9qHIRbaSgsaBF3w7LDSggZBu6VpHbTfdmChrbSgQdBFzw4rLWinB4KO/nEoakGDoK00bRda1Dg5RC1oKy1qQYsaQTs/EPSlKy1qQYsaQYuatje0qPFReHDUwhZ0mZW21oIWNYe6zdOyVz8D/IAJWtTCFrSohS3oxnetsAUtbASdIWpxC7p02AIXdNmoRS7oFmGLXNDlwhayoNPHLWJBp49bxIJOH7eIBZ02cvEKGn74ixUEDYIGQYOgETQIGgQNggZBI2gQNAgaBA2CRtAgaBA0CBoEjaBB0CBoEDQIGkGDoEHQIGgQNIIGQYOgQdAgaAQNkX0Ab47fA4rm6BEAAAAASUVORK5CYII=">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%232A2140'/%3E%3Ccircle cx='50' cy='50' r='29' fill='%23F3DCE4'/%3E%3Ccircle cx='64' cy='44' r='30' fill='%232A2140'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+:root{
+  --bg:#F6F4F9; --surface:#FFFFFF; --surface-2:#ECE9F2; --ink:#221F2B; --ink-2:#5E5A6B; --mute:#928DA0; --line:#E1DDE8;
+  --berry:#8B2F4E; --berry-soft:#F3DCE4; --sea:#2A7A73; --sea-soft:#D6EBE8; --dune:#A9782A; --dune-soft:#F2E6CC;
+  --ph-f:#C9C2D8; --ph-l:#DCC48E; --ring-track:#E6E2EE; --scrim:rgba(24,18,36,.45);
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#15131E; --surface:#1F1C2B; --surface-2:#2A2638; --ink:#EEEAF4; --ink-2:#B9B3C7; --mute:#7F7990; --line:#332F42;
+    --berry:#D96C91; --berry-soft:#3C2230; --sea:#5CBFB2; --sea-soft:#1E3733; --dune:#D7A84A; --dune-soft:#3A3020;
+    --ph-f:#4A4360; --ph-l:#8A6E33; --ring-track:#2C2839; --scrim:rgba(0,0,0,.55);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15131E; --surface:#1F1C2B; --surface-2:#2A2638; --ink:#EEEAF4; --ink-2:#B9B3C7; --mute:#7F7990; --line:#332F42;
+  --berry:#D96C91; --berry-soft:#3C2230; --sea:#5CBFB2; --sea-soft:#1E3733; --dune:#D7A84A; --dune-soft:#3A3020;
+  --ph-f:#4A4360; --ph-l:#8A6E33; --ring-track:#2C2839; --scrim:rgba(0,0,0,.55);
+  color-scheme:dark;
+}
+html{background:var(--bg);scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:'Noto Sans KR',-apple-system,'Apple SD Gothic Neo',system-ui,sans-serif;
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;
+  padding-bottom:88px;
+}
+.display{font-family:'Fraunces',Georgia,'Times New Roman',serif;font-optical-sizing:auto;font-weight:500;letter-spacing:-.01em}
+h1,h2,h3,p{margin:0}
+h2{font-size:17px;font-weight:500}
+strong{font-weight:500}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--sea);outline-offset:2px}
+[hidden]{display:none!important}
+
+.app{max-width:480px;margin:0 auto;padding:14px 20px 0}
+.view{display:none}
+.view.is-active{display:block}
+
+.topline{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px}
+.topline .brand{font-size:24px}
+.topline .date{color:var(--ink-2);font-size:14px}
+.title{font-size:28px;margin:6px 0 18px}
+
+.hint{color:var(--mute);font-size:14px;margin-top:8px}
+.lead{color:var(--ink-2);font-size:15px}
+.block{margin-top:30px}
+.block > h2{margin-bottom:10px}
+
+/* hero ring */
+.hero{display:flex;flex-direction:column;align-items:center;padding:6px 0 4px}
+.ring{position:relative;width:min(272px,70vw);aspect-ratio:1}
+.ring svg{width:100%;height:100%;display:block}
+.ring .center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;pointer-events:none}
+.ring .num{font-size:78px;line-height:1;color:var(--ink)}
+.ring .num small{font-family:'Noto Sans KR',-apple-system,'Apple SD Gothic Neo',sans-serif;font-size:16px;font-weight:400;color:var(--ink-2);margin-left:3px;letter-spacing:0}
+.ring .ph{margin-top:8px;font-size:15px;font-weight:500}
+.c-m{color:var(--berry)} .c-o{color:var(--sea)} .c-l,.c-p{color:var(--dune)} .c-f,.c-g{color:var(--ink-2)}
+.next{text-align:center;color:var(--ink-2);font-size:15px;margin-top:16px;line-height:1.7}
+.next strong{color:var(--ink)}
+
+.notice{border-left:3px solid var(--dune);background:var(--dune-soft);border-radius:0 12px 12px 0;padding:10px 14px;margin:14px 0 0;font-size:14.5px;line-height:1.55}
+.notice.berry{border-color:var(--berry);background:var(--berry-soft)}
+
+.rec{padding:14px 0;border-top:1px solid var(--line)}
+.rec:first-child{border-top:0;padding-top:4px}
+.rec .sym{font-weight:500;margin-bottom:4px}
+.rec p{color:var(--ink-2);font-size:15px}
+
+.btn{appearance:none;border:0;border-radius:14px;padding:14px 18px;font-weight:500;background:var(--ink);color:var(--bg);width:100%;transition:opacity .15s}
+.btn:active{opacity:.8}
+.btn.ghost{background:var(--surface-2);color:var(--ink)}
+.btn.danger{background:transparent;color:var(--berry);padding:10px}
+.btn + .btn{margin-top:10px}
+.btn.sm{width:auto;padding:9px 14px;font-size:14px;border-radius:11px}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:8px 14px;font-size:15px;color:var(--ink);transition:background .12s,color .12s}
+.chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+.seg{display:flex;background:var(--surface-2);border-radius:12px;padding:3px}
+.seg button{flex:1;border:0;background:transparent;padding:9px 6px;font-size:15px;border-radius:10px;color:var(--ink-2)}
+.seg button.on{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+
+.switch{position:relative;width:50px;height:30px;border-radius:15px;background:var(--line);border:0;padding:0;flex:none;transition:background .2s}
+.switch::after{content:'';position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:transform .2s}
+.switch.on{background:var(--berry)}
+.switch.on::after{transform:translateX(20px)}
+
+.row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 0;border-top:1px solid var(--line)}
+.row:first-child{border-top:0}
+.row .lbl{flex:1}
+.row .sub{display:block;color:var(--mute);font-size:13px;line-height:1.5;margin-top:2px}
+input[type=number],input[type=date],textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px;width:100%}
+.row input[type=number]{width:88px;text-align:center;flex:none}
+textarea{min-height:72px;resize:vertical;line-height:1.5}
+textarea.mono{font-family:ui-monospace,Menlo,monospace;font-size:12px;min-height:110px}
+
+.banner{display:flex;gap:12px;align-items:flex-start;background:var(--surface-2);border-radius:14px;padding:12px 14px;font-size:14px;color:var(--ink-2);margin-bottom:14px;line-height:1.55}
+.banner .x{border:0;background:transparent;color:var(--mute);font-size:20px;line-height:1;padding:0 2px;flex:none}
+
+/* empty state */
+.empty .big{font-size:30px;line-height:1.25;margin:28px 0 10px}
+.empty p{color:var(--ink-2)}
+.empty .form{margin-top:22px;display:flex;flex-direction:column;gap:10px}
+
+/* calendar */
+.cal-head{display:flex;align-items:center;justify-content:space-between;margin:2px 0 14px}
+.cal-head .m{font-size:28px;line-height:1}
+.cal-head .m small{font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;color:var(--ink-2);font-weight:400;margin-right:6px;letter-spacing:0}
+.cal-nav{display:flex;gap:6px;align-items:center}
+.cal-nav button{width:40px;height:40px;border-radius:50%;border:0;background:var(--surface-2);color:var(--ink);font-size:20px;line-height:1}
+.cal-nav .today-btn{width:auto;padding:0 14px;font-size:14px;border-radius:20px}
+.wk{display:grid;grid-template-columns:repeat(7,1fr);text-align:center;color:var(--mute);font-size:12px;margin-bottom:6px}
+.wk span:first-child{color:var(--berry)}
+.grid{display:grid;grid-template-columns:repeat(7,1fr);row-gap:8px}
+.day{position:relative;aspect-ratio:1;display:flex;align-items:center;justify-content:center;border:0;background:transparent;font-size:15px;color:var(--ink);padding:0;border-radius:50%}
+.day.out{visibility:hidden}
+.day .n{position:relative;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%}
+.day.fert .n{background:var(--sea-soft)}
+.day.ov .n{box-shadow:inset 0 0 0 2px var(--sea)}
+.day.pred .n{border:1.5px dashed var(--berry);color:var(--berry)}
+.day.per .n{background:var(--berry);color:#fff}
+.day.per.flow-l .n{background:color-mix(in srgb,var(--berry) 62%,var(--surface))}
+.day.today .n{outline:1.5px solid var(--ink);outline-offset:2px}
+.day.sym::after{content:'';position:absolute;bottom:1px;left:50%;transform:translateX(-50%);width:4px;height:4px;border-radius:50%;background:var(--mute)}
+.day.sym.per::after{background:var(--berry)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:18px;font-size:13px;color:var(--ink-2)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.legend .l-per{background:var(--berry)}
+.legend .l-pred{border:1.5px dashed var(--berry)}
+.legend .l-fert{background:var(--sea-soft)}
+.legend .l-ov{box-shadow:inset 0 0 0 2px var(--sea)}
+.legend .l-sym{width:5px;height:5px;background:var(--mute);margin:0 10px 0 3px;vertical-align:1px}
+.legend.center{justify-content:center;margin-top:14px;font-size:12.5px;gap:6px 14px}
+.legend .l-m,.guide .l-m{background:var(--berry)} .legend .l-f,.guide .l-f{background:var(--ph-f)} .legend .l-o,.guide .l-o{background:var(--sea)} .legend .l-l,.guide .l-l{background:var(--ph-l)} .legend .l-p,.guide .l-p{background:var(--dune)}
+.linkbtn{display:block;margin:10px auto 0;border:0;background:transparent;color:var(--ink-2);font-size:13.5px;text-decoration:underline;text-underline-offset:3px;padding:4px 8px}
+.guide{margin-top:12px;background:var(--surface);border-radius:16px;padding:6px 16px;width:100%}
+.guide .g{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-top:1px solid var(--line)}
+.guide .g:first-child{border-top:0}
+.guide .g i{display:block;flex:none;width:12px;height:12px;border-radius:50%;margin-top:6px}
+.guide .g strong{display:block;font-weight:500;font-size:15px}
+.guide .g span{display:block;color:var(--ink-2);font-size:14px;line-height:1.55}
+.guide .l-today{background:var(--surface);box-shadow:inset 0 0 0 2px var(--ink)}
+
+/* stats */
+.stat2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:6px}
+.stat .v{font-size:50px;line-height:1}
+.stat .v small{font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;color:var(--ink-2);font-weight:400;margin-left:2px;letter-spacing:0}
+.stat .k{color:var(--ink-2);font-size:14px;margin-top:4px}
+.chart svg{width:100%;height:auto;display:block}
+.hist .row{padding:11px 0;font-size:15px}
+.hist .row .r{color:var(--ink-2);font-size:14px;text-align:right}
+.freq .bar{height:6px;border-radius:3px;background:var(--ink);opacity:.85}
+.freq .row{padding:10px 0;align-items:center}
+.freq .lbl{flex:0 0 112px}
+.freq .track{flex:1;height:6px;border-radius:3px;background:var(--surface-2)}
+.freq .cnt{flex:0 0 32px;text-align:right;color:var(--ink-2);font-size:14px}
+
+/* tabs */
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:10;background:var(--surface);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+.tabs .in{max-width:480px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);height:58px}
+.tabs button{border:0;background:transparent;font-size:11px;color:var(--mute);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:0}
+.tabs button.on{color:var(--ink)}
+.tabs svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+
+/* sheet */
+.scrim{position:fixed;inset:0;background:var(--scrim);opacity:0;pointer-events:none;transition:opacity .25s;z-index:20}
+.scrim.open{opacity:1;pointer-events:auto}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:21;background:var(--surface);border-radius:22px 22px 0 0;padding:10px 20px calc(26px + env(safe-area-inset-bottom,0px));max-height:88vh;overflow:auto;transform:translateY(105%);transition:transform .32s cubic-bezier(.2,.8,.2,1);max-width:520px;margin:0 auto;-webkit-overflow-scrolling:touch}
+.sheet.open{transform:none}
+.sheet .grab{width:36px;height:4px;border-radius:2px;background:var(--line);margin:0 auto 14px}
+.sheet .head{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.sheet .head h2{font-size:20px}
+.sheet .close{border:0;background:var(--surface-2);width:34px;height:34px;border-radius:50%;font-size:18px;line-height:1}
+.sheet .sec{margin-top:18px}
+.sheet .sec h3{font-size:14px;color:var(--ink-2);font-weight:400;margin-bottom:10px}
+.sheet .seg{margin-top:12px}
+
+.toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translate(-50%,8px);background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:999px;font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:30;white-space:nowrap}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+.dlg-wrap{position:fixed;inset:0;z-index:40;background:var(--scrim);display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .2s}
+.dlg-wrap.open{opacity:1;pointer-events:auto}
+.dlg{background:var(--surface);border-radius:20px;padding:22px 20px 18px;width:100%;max-width:340px}
+.dlg p{font-size:16px;line-height:1.55;margin-bottom:18px}
+.dlg-btns{display:flex;gap:10px}
+.dlg-btns .btn{margin:0}
+
+.foot{color:var(--mute);font-size:12.5px;line-height:1.6;margin-top:28px}
+ol.steps{padding-left:18px;margin:8px 0 0;color:var(--ink-2);font-size:14px}
+ol.steps li{margin:4px 0}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- 오늘 -->
+  <section class="view is-active" id="view-home">
+    <div class="topline"><span class="brand display">Lune</span><span class="date" id="homeDate"></span></div>
+
+    <div class="banner" id="installBanner" hidden>
+      <div>홈 화면에 추가하면 앱처럼 쓸 수 있어요. Safari 하단의 공유 버튼을 누른 뒤 ‘홈 화면에 추가’를 선택하세요. 기록은 추가된 앱 안에 저장돼요.</div>
+      <button class="x" id="installClose" aria-label="닫기">×</button>
+    </div>
+
+    <div class="empty" id="homeEmpty" hidden>
+      <h1 class="big display">마지막 생리가<br>언제 시작됐나요?</h1>
+      <p>시작일 하나만 있으면 다음 예정일과 가임기를 계산해요. 이후 기록은 달력에서 날짜를 눌러 남기면 돼요.</p>
+      <div class="form">
+        <input type="date" id="startDate" aria-label="마지막 생리 시작일">
+        <button class="btn" id="btnStart">시작일 저장</button>
+      </div>
+      <p class="hint">피임약을 복용 중이면 설정에서 먼저 켜 두세요. 가임기 표시가 꺼져요.</p>
+    </div>
+
+    <div id="homeMain" hidden>
+      <div class="hero">
+        <div class="ring">
+          <svg id="ringSvg" viewBox="0 0 200 200" aria-hidden="true"></svg>
+          <div class="center">
+            <div class="num display" id="ringNum"></div>
+            <div class="ph" id="ringPhase"></div>
+          </div>
+        </div>
+        <p class="next" id="nextLine"></p>
+        <div class="legend center" id="ringLegend">
+          <span><i class="l-m"></i>생리</span>
+          <span class="np"><i class="l-f"></i>난포기</span>
+          <span class="np"><i class="l-o"></i>배란기·가임기</span>
+          <span class="np"><i class="l-l"></i>황체기</span>
+          <span class="np"><i class="l-p"></i>예정일 전</span>
+          <span class="pp" hidden><i class="l-f"></i>주기 중</span>
+        </div>
+        <button class="linkbtn" id="legendToggle">각 시기 설명 보기</button>
+        <div class="guide" id="phaseGuide" hidden>
+          <div class="g"><i class="l-today"></i><div><strong>흰 점</strong><span>오늘이 주기의 어디쯤인지 표시해요. 원은 시계 방향으로 한 주기(생리 시작일부터 다음 시작일 전날까지)를 나타내요.</span></div></div>
+          <div class="g"><i class="l-m"></i><div><strong>생리</strong><span>생리 시작일부터 평균 생리 기간까지. 실제로 기록한 날이 있으면 그 기록이 우선이에요.</span></div></div>
+          <div class="g np"><i class="l-f"></i><div><strong>난포기</strong><span>생리가 끝난 뒤 가임기 전까지. 에스트로겐이 올라와 에너지와 집중력이 좋아지는 시기예요.</span></div></div>
+          <div class="g np"><i class="l-o"></i><div><strong>배란기·가임기</strong><span>배란 예상일 5일 전부터 1일 후까지 7일. 배란 예상일은 다음 생리 예정일의 14일 전으로 계산해요.</span></div></div>
+          <div class="g np"><i class="l-l"></i><div><strong>황체기</strong><span>가임기가 끝난 뒤 예정일 5일 전까지. 프로게스테론이 올라가 붓기와 나른함이 생기기 쉬워요.</span></div></div>
+          <div class="g np"><i class="l-p"></i><div><strong>예정일 전</strong><span>예정일 5일 전부터 예정일까지. PMS 증상이 나타나기 쉬운 구간이에요.</span></div></div>
+          <div class="g pp" hidden><i class="l-f"></i><div><strong>주기 중</strong><span>피임약 복용 중에는 배란이 억제되어 생리 외 구간을 따로 나누지 않아요.</span></div></div>
+        </div>
+      </div>
+
+      <div id="warnBox"></div>
+
+      <div class="block">
+        <h2 id="phaseTitle"></h2>
+        <p class="lead" id="phaseDesc"></p>
+      </div>
+
+      <div class="block">
+        <h2>오늘의 권고</h2>
+        <div id="recBox"></div>
+      </div>
+
+      <div class="block">
+        <button class="btn ghost" id="btnLogToday">오늘 기록하기</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 달력 -->
+  <section class="view" id="view-cal">
+    <div class="cal-head">
+      <div class="m display" id="calTitle"></div>
+      <div class="cal-nav">
+        <button class="today-btn" id="calToday">오늘</button>
+        <button id="calPrev" aria-label="이전 달">‹</button>
+        <button id="calNext" aria-label="다음 달">›</button>
+      </div>
+    </div>
+    <div class="wk"><span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span></div>
+    <div class="grid" id="calGrid"></div>
+    <div class="legend">
+      <span><i class="l-per"></i>생리</span>
+      <span><i class="l-pred"></i>예정</span>
+      <span id="legFert"><i class="l-fert"></i>가임기</span>
+      <span id="legOv"><i class="l-ov"></i>배란 예상</span>
+      <span><i class="l-sym"></i>기록 있음</span>
+    </div>
+    <p class="hint">날짜를 누르면 그날의 생리·증상을 기록할 수 있어요.</p>
+  </section>
+
+  <!-- 통계 -->
+  <section class="view" id="view-stats">
+    <h1 class="title display">주기 통계</h1>
+    <div id="statsEmpty" class="lead" hidden>생리 시작일을 두 번 이상 기록하면 주기 통계가 보여요.</div>
+    <div id="statsMain" hidden>
+      <div class="stat2">
+        <div class="stat"><div class="v display" id="stCycle"></div><div class="k">평균 주기</div></div>
+        <div class="stat"><div class="v display" id="stPeriod"></div><div class="k">평균 생리 기간</div></div>
+      </div>
+      <div class="block chart">
+        <h2>주기 길이</h2>
+        <div id="chartBox"></div>
+        <p class="hint">옅게 칠한 띠가 일반적인 범위(21~35일)예요.</p>
+      </div>
+      <div class="block hist">
+        <h2>기록</h2>
+        <div id="histBox"></div>
+      </div>
+      <div class="block freq">
+        <h2>자주 기록한 증상</h2>
+        <div id="freqBox"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 설정 -->
+  <section class="view" id="view-settings">
+    <h1 class="title display">설정</h1>
+
+    <div class="row">
+      <div class="lbl">피임약 복용 중<span class="sub">켜면 배란기·가임기 표시를 끄고 주기 예측만 해요.</span></div>
+      <button class="switch" id="swPill" role="switch" aria-checked="false" aria-label="피임약 복용 중"></button>
+    </div>
+    <div class="row">
+      <div class="lbl">기본 주기 길이<span class="sub">기록이 2회 미만일 때 쓰는 값이에요. 이후엔 실제 기록의 평균을 써요.</span></div>
+      <input type="number" id="inCycle" min="21" max="45" inputmode="numeric">
+    </div>
+    <div class="row">
+      <div class="lbl">기본 생리 기간<span class="sub">예정 기간을 표시할 때 쓰는 값이에요.</span></div>
+      <input type="number" id="inPeriod" min="2" max="10" inputmode="numeric">
+    </div>
+    <div class="row">
+      <div class="lbl">테마</div>
+    </div>
+    <div class="seg" id="segTheme" style="margin-top:-6px">
+      <button data-v="system">시스템</button><button data-v="light">라이트</button><button data-v="dark">다크</button>
+    </div>
+
+    <div class="block">
+      <h2>백업</h2>
+      <p class="lead">기록은 이 폰의 앱 안에만 저장돼요. 폰을 바꾸거나 브라우저 데이터를 지우면 사라지니, 가끔 내보내기로 복사해 메모 앱에 보관하세요.</p>
+      <div style="margin-top:14px">
+        <button class="btn ghost" id="btnExport">기록 내보내기</button>
+        <div id="exportBox" hidden style="margin-top:10px">
+          <textarea class="mono" id="exportText" readonly></textarea>
+          <button class="btn sm" id="btnCopy" style="margin-top:8px">복사</button>
+        </div>
+        <button class="btn ghost" id="btnImport">기록 불러오기</button>
+        <div id="importBox" hidden style="margin-top:10px">
+          <textarea class="mono" id="importText" placeholder="내보내기로 복사해 둔 내용을 붙여 넣으세요"></textarea>
+          <button class="btn sm" id="btnImportGo" style="margin-top:8px">불러오기</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>아이폰 홈 화면에 추가하기</h2>
+      <ol class="steps">
+        <li>이 페이지를 Safari에서 엽니다. (카카오톡 등 앱 안의 브라우저에서는 안 돼요.)</li>
+        <li>하단 가운데 공유 버튼을 누릅니다.</li>
+        <li>‘홈 화면에 추가’를 선택하고 추가를 누릅니다.</li>
+        <li>이후에는 홈 화면의 Lune 아이콘으로 열고, 기록도 그 안에서 남깁니다.</li>
+      </ol>
+    </div>
+
+    <div class="block">
+      <button class="btn danger" id="btnReset">모든 기록 삭제</button>
+    </div>
+
+    <p class="foot">이 앱의 권고 문구는 일반적인 생활 정보이며 의학적 진단이나 치료를 대신하지 않아요. 통증이 심하거나 출혈 양상이 평소와 크게 다르면 산부인과 진료를 받으세요. 예정일·가임기 계산은 최근 주기 평균과 배란 후 14일 가정에 따른 추정치이며 피임 목적으로 쓰기에는 정확하지 않아요.</p>
+  </section>
+</div>
+
+<nav class="tabs" aria-label="주요 메뉴">
+  <div class="in">
+    <button data-view="home" class="on"><svg viewBox="0 0 24 24"><path d="M14 3.5a8.5 8.5 0 1 0 6.5 10.6A6.5 6.5 0 0 1 14 3.5z"/></svg>오늘</button>
+    <button data-view="cal"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>달력</button>
+    <button data-view="stats"><svg viewBox="0 0 24 24"><path d="M5 19V11M12 19V5M19 19v-8"/></svg>통계</button>
+    <button data-view="settings"><svg viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="15.5" cy="7" r="2.5"/><circle cx="9.5" cy="17" r="2.5"/></svg>설정</button>
+  </div>
+</nav>
+
+<div class="scrim" id="scrim"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+  <div class="grab"></div>
+  <div class="head"><h2 class="display" id="sheetTitle"></h2><button class="close" id="sheetClose" aria-label="닫기">×</button></div>
+  <div class="row">
+    <div class="lbl">생리</div>
+    <button class="switch" id="swPeriod" role="switch" aria-checked="false" aria-label="생리"></button>
+  </div>
+  <div id="flowRow" hidden>
+    <div class="seg" id="segFlow">
+      <button data-v="l">적음</button><button data-v="m">보통</button><button data-v="h">많음</button>
+    </div>
+  </div>
+  <div class="sec">
+    <h3>증상</h3>
+    <div class="chips" id="symChips"></div>
+  </div>
+  <div class="sec">
+    <h3>메모</h3>
+    <textarea id="noteText" placeholder="오늘 어땠는지 짧게 남겨 두세요"></textarea>
+  </div>
+  <div class="sec"><button class="btn danger" id="btnDelDay" hidden>이 날 기록 지우기</button></div>
+</div>
+<div class="dlg-wrap" id="dlgWrap"><div class="dlg" role="alertdialog" aria-modal="true" aria-describedby="dlgMsg"><p id="dlgMsg"></p><div class="dlg-btns"><button class="btn ghost" id="dlgNo">취소</button><button class="btn" id="dlgYes">확인</button></div></div></div>
+<div class="toast" id="toast" role="status"></div>
+<script>
+window.LUNE_DATA = {
+SYMPTOMS: [
+  ['cramp','생리통·복통'],['headache','두통'],['backache','요통'],['fatigue','피로감'],
+  ['breast','유방 통증'],['bloat','복부 팽만'],['skin','피부 트러블'],['appetite','식욕 증가'],
+  ['nausea','메스꺼움'],['bowel','설사·변비'],['sleep','수면 문제'],['low','기분 저하'],
+  ['irritable','예민함·짜증'],['anxiety','불안'],['dizzy','어지러움'],['discharge','분비물 변화']
+],
+PHASE: {
+  m: { name:'생리 중',
+       desc:'몸이 쉬어가는 시기예요. 따뜻하게 지내고 무리한 일정은 줄이는 게 좋아요.',
+       tip:'철분이 든 음식(붉은 고기, 콩, 시금치)과 따뜻한 물을 챙기고, 아랫배가 불편하면 온찜질을 해보세요.' },
+  f: { name:'난포기',
+       desc:'생리가 끝나고 에스트로겐이 올라오는 시기예요. 보통 에너지와 집중력이 좋아져요.',
+       tip:'새로운 일을 시작하거나 운동 강도를 올리기에 좋은 때예요. 피부도 가장 안정적인 시기예요.' },
+  o: { name:'배란기',
+       desc:'가임기이자 컨디션이 가장 좋은 편인 시기예요. 체온이 살짝 오르고 분비물이 맑아질 수 있어요.',
+       tip:'한쪽 아랫배가 콕콕 아픈 배란통이 있을 수 있어요. 보통 하루 이틀이면 지나가요.' },
+  l: { name:'황체기',
+       desc:'배란 후 프로게스테론이 올라가며 몸이 천천히 가라앉는 시기예요. 붓기와 나른함이 생기기 쉬워요.',
+       tip:'염분을 줄이고 수면 시간을 일정하게 유지해 보세요. 일정은 조금 여유 있게 잡는 게 좋아요.' },
+  p: { name:'예정일 전',
+       desc:'생리 예정일이 가까워 PMS 증상이 나타나기 쉬운 시기예요. 몸과 기분의 변화는 자연스러운 거예요.',
+       tip:'카페인·당분·술을 줄이고, 부담스러운 일정이나 중요한 결정은 가능하면 생리 이후로 미뤄보세요.' },
+  late: { name:'예정일 지남',
+       desc:'예정일이 지났어요. 며칠 정도의 편차는 스트레스, 수면, 체중 변화로도 흔히 생겨요.',
+       tip:'마지막 생리 시작일로부터 35일이 넘어가면 임신 여부 확인이나 산부인과 상담을 권해요.' },
+  g: { name:'주기 중',
+       desc:'피임약 복용 중에는 자연 배란이 억제되어 배란기와 가임기는 표시하지 않아요.',
+       tip:'매일 같은 시간에 복용하는 게 가장 중요해요. 휴약기 출혈은 달력에 생리로 기록해 두세요.' }
+},
+/* 증상별 × 시기별 권고. m 생리 중 / f 난포기 / o 배란기 / l 황체기 / p 예정일 전·지남 / g 피임약 복용 중 */
+REC: {
+cramp: {
+  m:'아랫배나 허리에 온찜질을 하고 가벼운 스트레칭을 해보세요. 진통제는 통증이 심해진 뒤보다 초기에 먹는 편이 낫다는 안내가 일반적이에요. 진통제로도 가라앉지 않거나 일상이 어려울 정도면 산부인과 상담을 권해요.',
+  f:'생리가 끝난 뒤에도 복통이 이어지면 소화기 쪽 원인일 수 있어요. 자극적인 음식을 피하고, 며칠 계속되면 진료를 받아보세요.',
+  o:'배란기에 한쪽 아랫배가 콕콕 아픈 배란통은 흔해요. 보통 하루 이틀이면 가라앉아요. 통증이 심하거나 열이 나면 진료가 필요해요.',
+  l:'황체기 복통은 팽만감과 함께 오는 경우가 많아요. 따뜻한 물을 자주 마시고 염분이 많은 음식을 줄여보세요.',
+  p:'생리 전 복통은 자궁이 준비하는 신호예요. 온찜질과 가벼운 걷기가 도움이 되고, 생리가 시작되면 보통 완화돼요.',
+  g:'피임약 복용 중 복통이 반복되면 약과의 관련성을 확인해 볼 필요가 있어요. 심하거나 지속되면 처방한 의료진과 상의하세요.'
+},
+headache: {
+  m:'생리 중 두통은 호르몬 변화로 흔해요. 수분을 충분히 마시고 카페인은 평소보다 줄이세요. 어두운 곳에서 잠시 쉬는 것도 도움이 돼요.',
+  f:'난포기 두통은 호르몬보다 수면 부족이나 탈수가 원인인 경우가 많아요. 물과 수면부터 챙겨보세요.',
+  o:'배란기 전후 두통은 에스트로겐 변동과 관련될 수 있어요. 규칙적인 식사와 수분 섭취를 유지하세요.',
+  l:'황체기에는 두통이 잦아질 수 있어요. 술과 카페인을 줄이고 수면 시간을 일정하게 유지해 보세요.',
+  p:'생리 전 두통은 PMS의 대표 증상이에요. 마그네슘이 든 음식(견과류, 잎채소)이 도움이 된다는 연구가 있어요. 매달 반복되고 심하면 진료 때 이 기록을 보여주세요.',
+  g:'피임약 복용 중 두통이 새로 생기거나 심해졌다면 가볍게 넘기지 마세요. 특히 시야 이상이 함께 오면 바로 진료가 필요해요.'
+},
+backache: {
+  m:'생리 중 요통은 생리통이 허리로 번지는 경우가 많아요. 허리에 온찜질을 하고, 오래 앉아 있다면 중간중간 일어나 움직여 주세요.',
+  f:'생리 후 요통은 자세나 근육 문제일 가능성이 커요. 스트레칭과 가벼운 코어 운동을 해보세요.',
+  o:'배란기 요통은 배란통이 허리 쪽으로 느껴지는 경우예요. 보통 길지 않아요.',
+  l:'황체기에는 몸이 붓고 무거워 허리에 부담이 가기 쉬워요. 염분을 줄이고 자기 전에 다리를 올려 두세요.',
+  p:'생리 전 요통은 흔한 PMS 증상이에요. 온찜질과 가벼운 요가 동작이 도움이 돼요.',
+  g:'요통이 생리 주기와 무관하게 계속되면 정형외과나 재활의학과 진료를 고려해 보세요.'
+},
+fatigue: {
+  m:'생리 중 피로는 출혈로 인한 철분 손실과 관련 있을 수 있어요. 붉은 고기, 콩, 시금치 같은 철분 식품을 챙기고 잠을 충분히 자세요.',
+  f:'난포기는 보통 에너지가 올라오는 시기예요. 그래도 피곤하다면 수면의 질과 식사를 먼저 점검해 보세요.',
+  o:'배란기 피로는 드문 편이에요. 최근 일정이 빡빡했다면 그 영향일 수 있어요.',
+  l:'황체기에는 프로게스테론 영향으로 나른하고 졸릴 수 있어요. 자연스러운 변화이니 일정을 조금 느슨하게 잡아 보세요.',
+  p:'생리 전 피로는 PMS의 흔한 증상이에요. 카페인으로 버티기보다 짧은 낮잠이나 이른 취침이 더 도움이 돼요.',
+  g:'피로가 주기와 상관없이 계속되면 빈혈이나 갑상선 문제 같은 다른 원인을 확인해 볼 필요가 있어요.'
+},
+breast: {
+  m:'생리가 시작되면 유방 통증은 보통 가라앉아요. 편한 속옷을 입고 카페인을 줄이면 도움이 돼요.',
+  f:'난포기 유방 통증은 흔하지 않아요. 한쪽만 아프거나 멍울이 만져지면 진료를 받아보세요.',
+  o:'배란 전후로 유방이 예민해질 수 있어요. 자연스러운 변화예요.',
+  l:'황체기 유방 통증과 팽만은 프로게스테론 영향으로 흔해요. 지지력 있는 속옷과 카페인 줄이기가 도움이 돼요.',
+  p:'생리 전 유방 통증은 가장 흔한 PMS 증상 중 하나예요. 생리가 시작되면 대부분 완화돼요. 멍울이 만져지면 별도로 확인하세요.',
+  g:'피임약 복용 초기에는 유방 통증이 흔하고 보통 몇 달 안에 가라앉아요. 계속되면 처방한 의료진과 상의하세요.'
+},
+bloat: {
+  m:'생리 초반 팽만은 흔하고 며칠 안에 가라앉아요. 짠 음식과 탄산을 줄이고 따뜻한 물을 마셔보세요.',
+  f:'난포기 팽만은 식사 내용과 관련 있는 경우가 많아요. 소화에 부담이 되는 음식을 줄여보세요.',
+  o:'배란기에 가벼운 팽만감을 느끼는 분들이 있어요. 보통 금방 지나가요.',
+  l:'황체기에는 몸이 수분을 붙잡아 붓기 쉬워요. 염분을 줄이고 가벼운 걷기로 순환을 도와주세요.',
+  p:'생리 전 팽만은 호르몬 변화로 인한 수분 저류 때문이에요. 짠 음식과 술을 피하고, 물은 오히려 충분히 마시세요.',
+  g:'팽만이 계속되거나 통증이 함께 있으면 소화기 문제일 수 있어요. 오래가면 진료를 받아보세요.'
+},
+skin: {
+  m:'생리 중 피부는 점차 안정되는 시기예요. 자극이 적은 세안과 보습에 집중하세요.',
+  f:'난포기는 피부가 가장 안정적인 때예요. 새로운 화장품은 이 시기에 테스트해 보는 게 좋아요.',
+  o:'배란기에는 피지가 조금 늘 수 있어요. 세안을 과하게 하지는 마세요.',
+  l:'황체기에는 프로게스테론 영향으로 피지 분비가 늘어 트러블이 생기기 쉬워요. 당분과 유제품을 줄여보는 분들이 있어요.',
+  p:'생리 전 트러블은 턱선 주변에 많이 생겨요. 짜지 말고 보습을 유지하세요. 매달 심하면 피부과에서 주기와 연관된 치료를 상담할 수 있어요.',
+  g:'피임약은 종류에 따라 피부에 영향을 줄 수 있어요. 트러블이 심해졌다면 처방한 의료진과 상의해 보세요.'
+},
+appetite: {
+  m:'생리 중 단 음식이 당기는 건 흔해요. 참기보다 과일이나 다크초콜릿처럼 덜 부담스러운 선택으로 바꿔보세요.',
+  f:'난포기는 식욕이 비교적 안정적인 시기예요. 식사량이 늘었다면 수면이나 스트레스를 점검해 보세요.',
+  o:'배란기 전후로 식욕이 잠깐 줄거나 늘 수 있어요. 자연스러운 변화예요.',
+  l:'황체기에는 기초대사량이 조금 올라가 실제로 더 배고플 수 있어요. 단백질과 복합 탄수화물을 챙기면 폭식을 줄이는 데 도움이 돼요.',
+  p:'생리 전 식욕 증가와 단 음식 갈망은 가장 흔한 PMS 증상이에요. 끼니를 거르지 않는 게 오히려 폭식을 막아줘요.',
+  g:'피임약 복용 중 식욕 변화는 사람마다 달라요. 체중 변화가 크다면 처방한 의료진과 상의하세요.'
+},
+nausea: {
+  m:'생리 중 메스꺼움은 생리통을 일으키는 물질(프로스타글란딘) 때문일 수 있어요. 소량씩 자주 먹고 생강차가 도움이 돼요. 구토가 심하면 진료가 필요해요.',
+  f:'생리 후 메스꺼움은 주기와 무관한 경우가 많아요. 식사와 수면을 점검하고, 계속되면 진료를 받으세요.',
+  o:'배란기 메스꺼움은 드물지만 호르몬 변화로 느끼는 분들이 있어요. 가볍게 드세요.',
+  l:'황체기 메스꺼움이 반복되면 기록해 두세요. 임신 가능성이 있다면 예정일 이후 검사를 고려하세요.',
+  p:'생리 전 메스꺼움은 PMS 증상 중 하나예요. 기름진 음식을 피하고 가볍게 드세요. 예정일이 지나도 계속되면 임신 테스트를 고려해 보세요.',
+  g:'피임약 복용 초기 메스꺼움은 흔하고 보통 몇 달 안에 가라앉아요. 식후에 복용하면 도움이 될 수 있어요.'
+},
+bowel: {
+  m:'생리 중 설사는 프로스타글란딘이 장을 자극해서 생겨요. 자극적인 음식과 카페인을 줄이고 수분을 보충하세요.',
+  f:'생리 후 장 상태는 보통 안정돼요. 계속 불편하면 식단이나 스트레스 요인을 살펴보세요.',
+  o:'배란기 장 변화는 흔하지 않아요. 식사 내용을 먼저 점검해 보세요.',
+  l:'황체기에는 프로게스테론이 장 운동을 늦춰 변비가 생기기 쉬워요. 식이섬유와 물을 늘리고 가볍게 움직이세요.',
+  p:'생리 직전 변비였다가 생리 시작과 함께 설사로 바뀌는 패턴이 흔해요. 자연스러운 변화예요.',
+  g:'장 증상이 주기와 무관하게 지속되면 소화기내과 진료를 고려하세요.'
+},
+sleep: {
+  m:'생리 중에는 통증이나 불편감으로 잠이 얕아질 수 있어요. 온찜질 후 취침하고 방을 조금 시원하게 하세요.',
+  f:'난포기는 보통 수면이 안정적인 시기예요. 잠이 안 온다면 카페인 섭취 시간과 늦은 화면 사용을 점검해 보세요.',
+  o:'배란기 전후 체온이 조금 올라 잠을 설칠 수 있어요. 방 온도를 낮춰보세요.',
+  l:'황체기에는 체온이 높아지고 잠이 얕아지기 쉬워요. 취침 시간을 일정하게 유지하고 술은 피하세요.',
+  p:'생리 전 불면은 흔한 PMS 증상이에요. 자기 전 따뜻한 샤워와 가벼운 스트레칭이 도움이 돼요.',
+  g:'수면 문제가 계속되면 복용 시간을 바꿔보는 것을 처방한 의료진과 상의해 볼 수 있어요.'
+},
+low: {
+  m:'생리 중 기분 저하는 호르몬 변화와 통증 때문에 흔해요. 무리한 일정을 줄이고 자신에게 너그러워지세요.',
+  f:'난포기는 보통 기분이 올라오는 시기예요. 그래도 가라앉는다면 주기 외의 요인을 살펴보세요.',
+  o:'배란기에는 대체로 기분이 좋은 편이에요. 가라앉는 날이 있다면 수면과 일정을 점검하세요.',
+  l:'황체기 기분 저하는 흔해요. 햇빛을 쬐며 짧게 걷는 것만으로도 도움이 돼요.',
+  p:'생리 전 기분 저하는 PMS의 핵심 증상이에요. 매달 일상이 어려울 만큼 심하면 PMDD(월경전불쾌장애)일 수 있으니 이 기록을 가지고 진료를 받아보세요.',
+  g:'피임약 복용 후 기분 변화가 뚜렷해졌다면 약 종류 변경을 처방한 의료진과 상의할 수 있어요.'
+},
+irritable: {
+  m:'생리 중 예민함은 통증과 피로가 겹쳐 생기기 쉬워요. 중요한 대화나 결정은 가능하면 미뤄보세요.',
+  f:'난포기 예민함은 주기보다 스트레스 요인일 가능성이 커요.',
+  o:'배란기에는 감정 기복이 크지 않은 편이에요. 유독 예민한 날이라면 수면 부족을 의심해 보세요.',
+  l:'황체기 중반부터 감정 기복이 생길 수 있어요. 카페인과 당분을 줄이면 기복이 완화되는 분들이 많아요.',
+  p:'생리 전 예민함은 가장 흔한 PMS 증상이에요. 주변에 미리 알려두고, 갈등이 생길 만한 일정은 조정해 보세요.',
+  g:'피임약 복용 중 감정 변화가 커졌다면 기록해 두고 처방한 의료진과 상의하세요.'
+},
+anxiety: {
+  m:'생리 중 불안감은 호르몬 급변으로 생길 수 있어요. 심호흡과 짧은 산책이 도움이 돼요.',
+  f:'난포기 불안은 주기 외의 원인인 경우가 많아요. 카페인을 줄여보세요.',
+  o:'배란기 불안은 드문 편이에요. 최근 걱정거리가 있다면 그 영향일 수 있어요.',
+  l:'황체기에는 불안이 올라올 수 있어요. 술과 카페인을 줄이고 수면을 지키세요.',
+  p:'생리 전 불안은 PMS 증상이에요. 매달 반복되고 일상에 영향을 주면 상담이나 진료를 고려하세요.',
+  g:'불안이 지속되면 피임약과의 관련성을 처방한 의료진과 확인해 보세요.'
+},
+dizzy: {
+  m:'생리 중 어지러움은 출혈량이 많을 때 빈혈 때문일 수 있어요. 철분 식품을 챙기고, 매달 반복되면 혈액검사를 받아보세요.',
+  f:'생리 후에도 어지러움이 계속되면 빈혈 가능성을 확인해 보세요.',
+  o:'배란기 어지러움은 흔하지 않아요. 수분과 식사를 점검하세요.',
+  l:'황체기 어지러움은 수면 부족이나 탈수와 관련될 수 있어요. 물을 충분히 마시세요.',
+  p:'생리 전 어지러움은 PMS 증상 중 하나예요. 천천히 일어나고 물을 충분히 마시세요.',
+  g:'어지러움이 반복되면 혈압과 빈혈 여부를 확인해 보세요.'
+},
+discharge: {
+  m:'생리 중에는 분비물 변화를 구분하기 어려워요. 냄새가 심하거나 가려움이 있으면 진료가 필요해요.',
+  f:'난포기 초반에는 분비물이 적고 끈적한 편이에요. 점점 양이 늘어나는 게 정상이에요.',
+  o:'배란기에는 맑고 미끈한 달걀흰자 같은 분비물이 늘어요. 배란 신호로 흔히 쓰이는 변화예요.',
+  l:'황체기에는 분비물이 다시 줄고 뻑뻑해져요. 자연스러운 변화예요.',
+  p:'생리 전 분비물이 조금 늘 수 있어요. 색이 누렇거나 녹색이거나 냄새가 나면 진료를 받아보세요.',
+  g:'피임약 복용 중에는 분비물 변화가 크지 않아요. 가려움이나 냄새가 있으면 확인이 필요해요.'
+}
+}
+};
+</script>
+<script>
+(function(){
+'use strict';
+var D = window.LUNE_DATA;
+var KEY = 'lune.v1';
+var SYM_LABEL = {};
+D.SYMPTOMS.forEach(function(s){ SYM_LABEL[s[0]] = s[1]; });
+
+function $(sel){ return document.querySelector(sel); }
+function $$(sel){ return Array.prototype.slice.call(document.querySelectorAll(sel)); }
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+
+/* ---------- storage ---------- */
+function normalize(s){
+  s = (s && typeof s === 'object') ? s : {};
+  s.v = 1;
+  s.settings = Object.assign({ pill:false, cycleLen:28, periodLen:5, theme:'system', installDismissed:false }, s.settings || {});
+  s.settings.cycleLen = clamp(parseInt(s.settings.cycleLen,10) || 28, 21, 45);
+  s.settings.periodLen = clamp(parseInt(s.settings.periodLen,10) || 5, 2, 10);
+  s.days = (s.days && typeof s.days === 'object') ? s.days : {};
+  return s;
+}
+function load(){
+  try { var raw = localStorage.getItem(KEY); if (raw) return normalize(JSON.parse(raw)); } catch(e) {}
+  return normalize({});
+}
+function save(){
+  try { localStorage.setItem(KEY, JSON.stringify(state)); }
+  catch(e) { toast('저장하지 못했어요. 저장 공간을 확인해 주세요.'); }
+}
+function clamp(n, a, b){ return Math.min(b, Math.max(a, n)); }
+
+/* ---------- dates ---------- */
+var WD = ['일','월','화','수','목','금','토'];
+function pad(n){ return (n < 10 ? '0' : '') + n; }
+function key(d){ return d.getFullYear() + '-' + pad(d.getMonth()+1) + '-' + pad(d.getDate()); }
+function parse(k){ var p = k.split('-'); return new Date(+p[0], +p[1]-1, +p[2]); }
+function addDays(d, n){ var x = new Date(d.getFullYear(), d.getMonth(), d.getDate()); x.setDate(x.getDate() + n); return x; }
+function diff(a, b){ return Math.round((b - a) / 86400000); }
+function today(){ var t = new Date(); return new Date(t.getFullYear(), t.getMonth(), t.getDate()); }
+function fmt(d){ return (d.getMonth()+1) + '월 ' + d.getDate() + '일'; }
+function fmtW(d){ return fmt(d) + ' (' + WD[d.getDay()] + ')'; }
+
+/* ---------- cycle math ---------- */
+var state = load();
+var stats = null;
+
+function episodes(){
+  var keys = Object.keys(state.days).filter(function(k){ return state.days[k].p; }).sort();
+  var eps = [], cur = null;
+  keys.forEach(function(k){
+    var d = parse(k);
+    if (cur && diff(cur.end, d) <= 2) { cur.end = d; cur.days.push(k); }
+    else { cur = { start:d, end:d, days:[k] }; eps.push(cur); }
+  });
+  eps.forEach(function(e){ e.len = diff(e.start, e.end) + 1; });
+  return eps;
+}
+function avg(arr){ return arr.length ? Math.round(arr.reduce(function(a,b){ return a+b; }, 0) / arr.length) : null; }
+function cycleStats(){
+  var eps = episodes(), t = today(), lens = [];
+  for (var i = 1; i < eps.length; i++) lens.push({ start: eps[i-1].start, len: diff(eps[i-1].start, eps[i].start) });
+  var L = avg(lens.slice(-6).map(function(x){ return x.len; })) || state.settings.cycleLen;
+  var done = eps.filter(function(e){ return diff(e.end, t) >= 2; });
+  var P = avg(done.slice(-6).map(function(e){ return e.len; })) || state.settings.periodLen;
+  var last = eps.length ? eps[eps.length-1] : null;
+  return { eps:eps, lens:lens, L:L, P:P, last:last, ongoing: last ? diff(last.end, t) <= 1 : false };
+}
+/* 어떤 날짜가 속한 주기: 시작일, 길이(실제 또는 평균), 실제 여부 */
+function cycleOf(date){
+  var eps = stats.eps, ep = null, idx = -1;
+  for (var i = 0; i < eps.length; i++) { if (eps[i].start <= date) { ep = eps[i]; idx = i; } else break; }
+  if (!ep) return null;
+  var next = eps[idx+1];
+  return { start: ep.start, len: next ? diff(ep.start, next.start) : stats.L, actual: !!next };
+}
+/* 날짜의 시기 코드 */
+function phaseOf(date){
+  var rec = state.days[key(date)];
+  if (rec && rec.p) return 'm';
+  if (state.settings.pill) return 'g';
+  var c = cycleOf(date); if (!c) return null;
+  var d = diff(c.start, date) + 1, L = c.len, ov = L - 14;
+  if (d >= ov - 5 && d <= ov + 1) return 'o';
+  if (d < ov - 5) return 'f';
+  if (d <= L - 6) return 'l';
+  return 'p';
+}
+function ringSegments(L, P, pill){
+  P = Math.min(P, L - 1);
+  if (pill) return [{a:1,b:P,c:'m'},{a:P+1,b:L,c:'g'}];
+  var ov = L - 14, segs = [{a:1,b:P,c:'m'}];
+  var fS = P + 1, fE = ov - 6;
+  if (fE >= fS) segs.push({a:fS,b:fE,c:'f'});
+  segs.push({a:Math.max(ov-5, P+1), b:ov+1, c:'o'});
+  var lE = L - 6;
+  if (lE >= ov + 2) segs.push({a:ov+2, b:lE, c:'l'});
+  segs.push({a:Math.max(L-5, ov+2), b:L, c:'p'});
+  return segs;
+}
+function ringSvg(L, P, d, pill){
+  var R = 84, C = 2*Math.PI*R, gap = 3;
+  var col = { m:'var(--berry)', f:'var(--ph-f)', o:'var(--sea)', l:'var(--ph-l)', p:'var(--dune)', g:'var(--ph-f)' };
+  var s = '<circle cx="100" cy="100" r="84" fill="none" stroke="var(--ring-track)" stroke-width="14"/>';
+  ringSegments(L, P, pill).forEach(function(sg){
+    var len = (sg.b - sg.a + 1) / L * C - gap, start = (sg.a - 1) / L * C + gap/2;
+    if (len <= 0) return;
+    s += '<circle cx="100" cy="100" r="84" fill="none" stroke="' + col[sg.c] + '" stroke-width="14" stroke-dasharray="' + len.toFixed(2) + ' ' + (C - len).toFixed(2) + '" stroke-dashoffset="' + (-start).toFixed(2) + '" transform="rotate(-90 100 100)"/>';
+  });
+  var frac = Math.min(d - 0.5, L) / L, ang = -Math.PI/2 + frac*2*Math.PI;
+  s += '<circle cx="' + (100 + R*Math.cos(ang)).toFixed(2) + '" cy="' + (100 + R*Math.sin(ang)).toFixed(2) + '" r="9" fill="var(--surface)" stroke="var(--ink)" stroke-width="2.5"/>';
+  return s;
+}
+
+/* ---------- warnings (일반 기준) ---------- */
+function warnings(){
+  var out = [], t = today(), eps = stats.eps, lens = stats.lens;
+  if (!eps.length) return out;
+  if (lens.length) {
+    var lc = lens[lens.length-1].len;
+    if (lc < 21 || lc > 35) out.push({ level:'dune', text:'최근 주기가 ' + lc + '일로 일반적인 범위(21~35일)를 벗어났어요. 한두 번은 흔하지만 반복되면 산부인과 상담을 권해요.' });
+  }
+  var recent = lens.slice(-6).map(function(x){ return x.len; });
+  if (recent.length >= 3) {
+    var mx = Math.max.apply(null, recent), mn = Math.min.apply(null, recent);
+    if (mx - mn >= 9) out.push({ level:'dune', text:'최근 주기 길이의 편차가 ' + (mx-mn) + '일이에요. 편차가 9일 이상이면 불규칙 주기로 보는 기준이 있어요.' });
+  }
+  var last = stats.last;
+  if (stats.ongoing) {
+    var n = diff(last.start, t) + 1;
+    if (n > 7) out.push({ level:'berry', text:'이번 생리가 ' + n + '일째 이어지고 있어요. 7일을 넘기는 출혈은 진료를 권해요.' });
+  } else {
+    var dd = diff(last.start, t) + 1;
+    if (dd > 35) out.push({ level:'berry', text:'마지막 생리 시작 후 ' + dd + '일이 지났어요. 35일을 넘기면 임신 여부 확인이나 산부인과 상담을 권해요.' });
+  }
+  var done = stats.ongoing ? eps.slice(0, -1) : eps;
+  if (done.length) {
+    var pl = done[done.length-1].len;
+    if (pl > 7) out.push({ level:'dune', text:'최근 생리가 ' + pl + '일 이어졌어요. 7일을 넘기는 출혈이 반복되면 확인이 필요해요.' });
+    else if (pl < 2) out.push({ level:'dune', text:'최근 생리가 ' + pl + '일로 짧았어요. 반복되면 확인이 필요해요.' });
+  }
+  var run = 0, maxRun = 0;
+  last.days.forEach(function(k){ if (state.days[k].flow === 'h') { run++; maxRun = Math.max(maxRun, run); } else run = 0; });
+  if (maxRun >= 3) out.push({ level:'dune', text:'‘많음’으로 기록한 날이 3일 이상 이어졌어요. 한 시간마다 생리용품을 바꿔야 할 정도라면 과다월경일 수 있어 진료를 권해요.' });
+  return out;
+}
+
+/* ---------- theme / platform ---------- */
+var ua = navigator.userAgent || '';
+var isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+var standalone = (window.navigator.standalone === true) || (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches);
+function applyTheme(){
+  var th = state.settings.theme;
+  if (th === 'light' || th === 'dark') document.documentElement.setAttribute('data-theme', th);
+  else document.documentElement.removeAttribute('data-theme');
+}
+
+/* ---------- render: home ---------- */
+function renderHome(){
+  var t = today();
+  $('#homeDate').textContent = t.getFullYear() + '년 ' + fmtW(t);
+  $('#installBanner').hidden = !(isIOS && !standalone && !state.settings.installDismissed);
+  var has = !!stats.last;
+  $('#homeEmpty').hidden = has;
+  $('#homeMain').hidden = !has;
+  if (!has) { var sd = $('#startDate'); sd.max = key(t); if (!sd.value) sd.value = key(t); return; }
+
+  var c = cycleOf(t), d = diff(c.start, t) + 1, L = c.len, P = stats.P;
+  var ph = phaseOf(t);
+  var late = (ph === 'p' || ph === 'g') && d > L;
+  var info = late ? D.PHASE.late : D.PHASE[ph];
+
+  $('#ringSvg').innerHTML = ringSvg(L, P, d, state.settings.pill);
+  $('#ringNum').innerHTML = d + '<small>일째</small>';
+  var rp = $('#ringPhase'); rp.textContent = info.name; rp.className = 'ph c-' + (late ? 'p' : ph);
+  $$('#ringLegend .np, #phaseGuide .np').forEach(function(e){ e.hidden = state.settings.pill; });
+  $$('#ringLegend .pp, #phaseGuide .pp').forEach(function(e){ e.hidden = !state.settings.pill; });
+
+  var nextStart = addDays(c.start, L), dn = diff(t, nextStart), line;
+  if (ph === 'm') line = '생리 ' + (diff(stats.last.start, t) + 1) + '일째';
+  else if (dn > 0) line = '다음 생리 예정 <strong>' + fmt(nextStart) + '</strong>, ' + dn + '일 후';
+  else if (dn === 0) line = '오늘이 생리 예정일이에요';
+  else line = '예정일(' + fmt(nextStart) + ')이 ' + (-dn) + '일 지났어요';
+  if (!state.settings.pill && !late) {
+    var ov = addDays(c.start, L - 15), fs = addDays(ov, -5), fe = addDays(ov, 1);
+    while (diff(t, fe) < 0) { fs = addDays(fs, L); fe = addDays(fe, L); }
+    line += '<br>가임기 ' + fmt(fs) + ' – ' + fmt(fe);
+  }
+  $('#nextLine').innerHTML = line;
+
+  $('#warnBox').innerHTML = warnings().map(function(w){ return '<div class="notice ' + w.level + '">' + w.text + '</div>'; }).join('');
+  $('#phaseTitle').textContent = info.name;
+  $('#phaseDesc').textContent = info.desc;
+
+  var rec = state.days[key(t)], syms = (rec && rec.s) || [], html = '';
+  if (syms.length) {
+    syms.forEach(function(id){
+      var r = D.REC[id] || {}, txt = r[ph] || r.g;
+      if (txt) html += '<div class="rec"><div class="sym">' + SYM_LABEL[id] + '</div><p>' + txt + '</p></div>';
+    });
+    html += '<div class="rec"><div class="sym">이 시기에는</div><p>' + info.tip + '</p></div>';
+  } else {
+    html = '<div class="rec"><p>' + info.tip + '</p></div><p class="hint">오늘 증상을 기록하면 시기에 맞는 권고를 보여드려요.</p>';
+  }
+  $('#recBox').innerHTML = html;
+}
+
+/* ---------- render: calendar ---------- */
+var calY = null, calM = null;
+function dayMarks(date){
+  var k = key(date), rec = state.days[k], m = { sym: !!(rec && rec.s && rec.s.length) };
+  if (rec && rec.p) { m.per = true; m.flow = rec.flow || 'm'; return m; }
+  var c = cycleOf(date); if (!c) return m;
+  var d = diff(c.start, date) + 1, L = c.len, P = stats.P, dd = d;
+  if (!c.actual && d > L) { dd = ((d - 1) % L) + 1; if (dd <= P) m.pred = true; }
+  if (!state.settings.pill) {
+    var ov = L - 14;
+    if (dd >= ov - 5 && dd <= ov + 1) m.fert = true;
+    if (dd === ov) m.ov = true;
+  }
+  return m;
+}
+function renderCal(){
+  var t = today();
+  if (calY === null) { calY = t.getFullYear(); calM = t.getMonth(); }
+  $('#calTitle').innerHTML = '<small>' + calY + '년</small>' + (calM + 1) + '월';
+  $('#legFert').hidden = state.settings.pill; $('#legOv').hidden = state.settings.pill;
+  var first = new Date(calY, calM, 1), n = new Date(calY, calM + 1, 0).getDate(), tk = key(t), html = '';
+  for (var b = 0; b < first.getDay(); b++) html += '<div class="day out"></div>';
+  for (var i = 1; i <= n; i++) {
+    var date = new Date(calY, calM, i), k = key(date), mk = dayMarks(date), cls = 'day';
+    if (mk.per) cls += ' per flow-' + mk.flow;
+    if (mk.pred) cls += ' pred';
+    if (mk.fert) cls += ' fert';
+    if (mk.ov) cls += ' ov';
+    if (mk.sym) cls += ' sym';
+    if (k === tk) cls += ' today';
+    html += '<button class="' + cls + '" data-k="' + k + '" aria-label="' + fmtW(date) + '"><span class="n">' + i + '</span></button>';
+  }
+  $('#calGrid').innerHTML = html;
+}
+
+/* ---------- render: stats ---------- */
+function renderStats(){
+  var lens = stats.lens, eps = stats.eps;
+  $('#statsEmpty').hidden = lens.length > 0;
+  $('#statsMain').hidden = lens.length === 0;
+  if (!lens.length) return;
+  $('#stCycle').innerHTML = stats.L + '<small>일</small>';
+  $('#stPeriod').innerHTML = stats.P + '<small>일</small>';
+
+  var data = lens.slice(-10), W = 320, H = 150, px = 8, top = 18, bottom = 26, lo = 15, hi = 45;
+  var iw = (W - px*2) / data.length, bw = Math.min(26, iw * 0.55);
+  function y(v){ return top + (hi - clamp(v, lo, hi)) / (hi - lo) * (H - top - bottom); }
+  var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="최근 주기 길이">';
+  svg += '<rect x="0" y="' + y(35).toFixed(1) + '" width="' + W + '" height="' + (y(21) - y(35)).toFixed(1) + '" fill="var(--sea-soft)" rx="4"/>';
+  data.forEach(function(c, i){
+    var x = px + iw*i + (iw - bw)/2, yy = y(c.len);
+    svg += '<rect x="' + x.toFixed(1) + '" y="' + yy.toFixed(1) + '" width="' + bw + '" height="' + (H - bottom - yy).toFixed(1) + '" rx="4" fill="var(--berry)"/>';
+    svg += '<text x="' + (x + bw/2).toFixed(1) + '" y="' + (yy - 5).toFixed(1) + '" text-anchor="middle" font-size="11" fill="var(--ink)" font-family="Fraunces,Georgia,serif">' + c.len + '</text>';
+    svg += '<text x="' + (x + bw/2).toFixed(1) + '" y="' + (H - 8) + '" text-anchor="middle" font-size="10" fill="var(--mute)">' + (c.start.getMonth()+1) + '월</text>';
+  });
+  svg += '</svg>';
+  $('#chartBox').innerHTML = svg;
+
+  var hist = '';
+  eps.slice().reverse().slice(0, 12).forEach(function(e, i, arr){
+    var idx = eps.indexOf(e), next = eps[idx+1];
+    var r = next ? '주기 ' + diff(e.start, next.start) + '일' : (stats.ongoing && idx === eps.length-1 ? '진행 중' : '현재 주기');
+    hist += '<div class="row"><div class="lbl">' + e.start.getFullYear() + '년 ' + fmt(e.start) + '<span class="sub">생리 ' + e.len + '일</span></div><div class="r">' + r + '</div></div>';
+  });
+  $('#histBox').innerHTML = hist;
+
+  var since = addDays(today(), -180), cnt = {}, max = 0;
+  Object.keys(state.days).forEach(function(k){
+    if (parse(k) < since) return;
+    (state.days[k].s || []).forEach(function(id){ cnt[id] = (cnt[id] || 0) + 1; max = Math.max(max, cnt[id]); });
+  });
+  var list = Object.keys(cnt).sort(function(a,b){ return cnt[b] - cnt[a]; }).slice(0, 6), fq = '';
+  list.forEach(function(id){
+    fq += '<div class="row"><div class="lbl">' + SYM_LABEL[id] + '</div><div class="track"><div class="bar" style="width:' + Math.round(cnt[id]/max*100) + '%"></div></div><div class="cnt">' + cnt[id] + '회</div></div>';
+  });
+  $('#freqBox').innerHTML = fq || '<p class="lead">최근 6개월 동안 기록한 증상이 없어요.</p>';
+}
+
+/* ---------- render: settings ---------- */
+function renderSettings(){
+  var S = state.settings;
+  var sw = $('#swPill'); sw.classList.toggle('on', S.pill); sw.setAttribute('aria-checked', S.pill);
+  $('#inCycle').value = S.cycleLen; $('#inPeriod').value = S.periodLen;
+  $$('#segTheme button').forEach(function(b){ b.classList.toggle('on', b.dataset.v === S.theme); });
+}
+
+function renderAll(){ applyTheme(); stats = cycleStats(); renderHome(); renderCal(); renderStats(); renderSettings(); }
+
+/* ---------- day sheet ---------- */
+var sheetKey = null;
+function openSheet(k){
+  if (k > key(today())) { toast('미래 날짜는 기록할 수 없어요'); return; }
+  sheetKey = k;
+  $('#sheetTitle').textContent = fmtW(parse(k));
+  renderSheet();
+  $('#scrim').classList.add('open'); $('#sheet').classList.add('open');
+}
+function closeSheet(){ $('#scrim').classList.remove('open'); $('#sheet').classList.remove('open'); sheetKey = null; }
+function renderSheet(){
+  var rec = state.days[sheetKey] || {};
+  var sw = $('#swPeriod'); sw.classList.toggle('on', !!rec.p); sw.setAttribute('aria-checked', !!rec.p);
+  $('#flowRow').hidden = !rec.p;
+  $$('#segFlow button').forEach(function(b){ b.classList.toggle('on', (rec.flow || 'm') === b.dataset.v); });
+  var s = rec.s || [], chips = '';
+  D.SYMPTOMS.forEach(function(sym){ chips += '<button class="chip' + (s.indexOf(sym[0]) >= 0 ? ' on' : '') + '" data-id="' + sym[0] + '">' + sym[1] + '</button>'; });
+  $('#symChips').innerHTML = chips;
+  if (document.activeElement !== $('#noteText')) $('#noteText').value = rec.note || '';
+  $('#btnDelDay').hidden = !state.days[sheetKey];
+}
+function updateDay(fn, rerenderSheet){
+  var rec = Object.assign({ s:[], note:'' }, state.days[sheetKey] || {});
+  fn(rec);
+  if (!rec.p) delete rec.flow; else if (!rec.flow) rec.flow = 'm';
+  if (!rec.p && !rec.s.length && !rec.note) delete state.days[sheetKey];
+  else state.days[sheetKey] = rec;
+  save();
+  if (rerenderSheet !== false) renderSheet();
+  stats = cycleStats(); renderHome(); renderCal(); renderStats();
+}
+
+/* ---------- misc ---------- */
+var toastTimer = null;
+function toast(msg){
+  var el = $('#toast'); el.textContent = msg; el.classList.add('show');
+  clearTimeout(toastTimer); toastTimer = setTimeout(function(){ el.classList.remove('show'); }, 1800);
+}
+var confirmCb = null;
+function askConfirm(msg, yesLabel, cb){
+  confirmCb = cb; $('#dlgMsg').textContent = msg; $('#dlgYes').textContent = yesLabel || '확인';
+  $('#dlgWrap').classList.add('open');
+}
+function closeConfirm(){ $('#dlgWrap').classList.remove('open'); confirmCb = null; }
+function go(view){
+  $$('.view').forEach(function(v){ v.classList.toggle('is-active', v.id === 'view-' + view); });
+  $$('.tabs button').forEach(function(b){ b.classList.toggle('on', b.dataset.view === view); });
+  window.scrollTo(0, 0);
+}
+function copyText(text){
+  if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(text);
+  return new Promise(function(res, rej){
+    var ta = $('#exportText'); ta.focus(); ta.select();
+    try { document.execCommand('copy') ? res() : rej(); } catch(e) { rej(e); }
+  });
+}
+
+/* ---------- events ---------- */
+$$('.tabs button').forEach(function(b){ b.addEventListener('click', function(){ go(b.dataset.view); }); });
+$('#installClose').addEventListener('click', function(){ state.settings.installDismissed = true; save(); renderHome(); });
+$('#btnStart').addEventListener('click', function(){
+  var v = $('#startDate').value; if (!v) { toast('시작일을 골라 주세요'); return; }
+  var d = parse(v), t = today();
+  if (d > t) { toast('오늘 이후 날짜는 고를 수 없어요'); return; }
+  for (var i = 0; i < state.settings.periodLen; i++) { var x = addDays(d, i); if (x > t) break; state.days[key(x)] = Object.assign({ s:[], note:'' }, state.days[key(x)] || {}, { p:true, flow:'m' }); }
+  save(); renderAll();
+});
+$('#btnLogToday').addEventListener('click', function(){ openSheet(key(today())); });
+$('#legendToggle').addEventListener('click', function(){
+  var g = $('#phaseGuide'); g.hidden = !g.hidden;
+  this.textContent = g.hidden ? '각 시기 설명 보기' : '설명 닫기';
+});
+
+$('#calPrev').addEventListener('click', function(){ calM--; if (calM < 0) { calM = 11; calY--; } renderCal(); });
+$('#calNext').addEventListener('click', function(){ calM++; if (calM > 11) { calM = 0; calY++; } renderCal(); });
+$('#calToday').addEventListener('click', function(){ var t = today(); calY = t.getFullYear(); calM = t.getMonth(); renderCal(); });
+$('#calGrid').addEventListener('click', function(e){ var b = e.target.closest('.day'); if (b && b.dataset.k) openSheet(b.dataset.k); });
+
+$('#scrim').addEventListener('click', closeSheet);
+$('#sheetClose').addEventListener('click', closeSheet);
+$('#swPeriod').addEventListener('click', function(){ updateDay(function(r){ r.p = !r.p; }); });
+$('#segFlow').addEventListener('click', function(e){ var b = e.target.closest('button'); if (b) updateDay(function(r){ r.flow = b.dataset.v; }); });
+$('#symChips').addEventListener('click', function(e){
+  var b = e.target.closest('.chip'); if (!b) return;
+  updateDay(function(r){ var i = r.s.indexOf(b.dataset.id); if (i >= 0) r.s.splice(i, 1); else r.s.push(b.dataset.id); });
+});
+$('#noteText').addEventListener('input', function(){ var v = this.value; updateDay(function(r){ r.note = v.slice(0, 500); }, false); });
+$('#btnDelDay').addEventListener('click', function(){ delete state.days[sheetKey]; save(); renderSheet(); renderAll(); toast('지웠어요'); });
+
+$('#swPill').addEventListener('click', function(){ state.settings.pill = !state.settings.pill; save(); renderAll(); });
+$('#inCycle').addEventListener('change', function(){ state.settings.cycleLen = clamp(parseInt(this.value,10) || 28, 21, 45); save(); renderAll(); });
+$('#inPeriod').addEventListener('change', function(){ state.settings.periodLen = clamp(parseInt(this.value,10) || 5, 2, 10); save(); renderAll(); });
+$('#segTheme').addEventListener('click', function(e){ var b = e.target.closest('button'); if (b) { state.settings.theme = b.dataset.v; save(); renderAll(); } });
+
+$('#btnExport').addEventListener('click', function(){
+  var box = $('#exportBox'); box.hidden = !box.hidden;
+  if (!box.hidden) $('#exportText').value = JSON.stringify(state);
+});
+$('#btnCopy').addEventListener('click', function(){
+  copyText($('#exportText').value).then(function(){ toast('복사했어요'); }, function(){ toast('길게 눌러 직접 복사해 주세요'); });
+});
+$('#btnImport').addEventListener('click', function(){ var box = $('#importBox'); box.hidden = !box.hidden; });
+$('#btnImportGo').addEventListener('click', function(){
+  var txt = $('#importText').value.trim(); if (!txt) return;
+  var obj; try { obj = JSON.parse(txt); } catch(e) { toast('형식이 맞지 않아요'); return; }
+  if (!obj || typeof obj.days !== 'object') { toast('Lune에서 내보낸 기록이 아니에요'); return; }
+  askConfirm('지금 기록을 불러온 내용으로 바꿀까요?', '바꾸기', function(){
+    state = normalize(obj); save(); renderAll(); $('#importText').value = ''; $('#importBox').hidden = true; toast('불러왔어요');
+  });
+});
+$('#btnReset').addEventListener('click', function(){
+  askConfirm('모든 기록을 지울까요? 되돌릴 수 없어요.', '지우기', function(){
+    state = normalize({ settings: { theme: state.settings.theme } }); save(); renderAll(); go('home'); toast('지웠어요');
+  });
+});
+$('#dlgNo').addEventListener('click', closeConfirm);
+$('#dlgWrap').addEventListener('click', function(e){ if (e.target === this) closeConfirm(); });
+$('#dlgYes').addEventListener('click', function(){ var cb = confirmCb; closeConfirm(); if (cb) cb(); });
+
+document.addEventListener('visibilitychange', function(){ if (!document.hidden) renderAll(); });
+renderAll();
+})();
+</script>
+</body>
+</html>
