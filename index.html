@@ -24,7 +24,6 @@
   --ph-f:#C9C2D8; --ph-l:#DCC48E; --ring-track:#E6E2EE; --scrim:rgba(24,18,36,.45);
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px);
-  padding-bottom:env(safe-area-inset-bottom,0px);
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
@@ -45,7 +44,8 @@ body{
   margin:0;background:var(--bg);color:var(--ink);
   font-family:'Noto Sans KR',-apple-system,'Apple SD Gothic Neo',system-ui,sans-serif;
   font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;
-  padding-bottom:88px;
+  min-height:calc(100vh - env(safe-area-inset-top,0px));min-height:calc(100dvh - env(safe-area-inset-top,0px));
+  display:flex;flex-direction:column;
 }
 .display{font-family:'Fraunces',Georgia,'Times New Roman',serif;font-optical-sizing:auto;font-weight:500;letter-spacing:-.01em}
 h1,h2,h3,p{margin:0}
@@ -55,7 +55,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 :focus-visible{outline:2px solid var(--sea);outline-offset:2px}
 [hidden]{display:none!important}
 
-.app{max-width:480px;margin:0 auto;padding:14px 20px 0}
+.app{max-width:480px;width:100%;margin:0 auto;padding:14px 20px 28px;flex:1}
 .view{display:none}
 .view.is-active{display:block}
 
@@ -180,7 +180,7 @@ textarea.mono{font-family:ui-monospace,Menlo,monospace;font-size:12px;min-height
 .freq .cnt{flex:0 0 32px;text-align:right;color:var(--ink-2);font-size:14px}
 
 /* tabs */
-.tabs{position:fixed;left:0;right:0;bottom:0;z-index:10;background:var(--surface);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+.tabs{position:sticky;bottom:0;margin-top:auto;z-index:10;background:var(--surface);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
 .tabs .in{max-width:480px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);height:58px}
 .tabs button{border:0;background:transparent;font-size:11px;color:var(--mute);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:0}
 .tabs button.on{color:var(--ink)}
@@ -1004,6 +1004,10 @@ $('#dlgWrap').addEventListener('click', function(e){ if (e.target === this) clos
 $('#dlgYes').addEventListener('click', function(){ var cb = confirmCb; closeConfirm(); if (cb) cb(); });
 
 document.addEventListener('visibilitychange', function(){ if (!document.hidden) renderAll(); });
+/* iOS 26: 키보드가 닫힌 뒤 하단 바 위치가 밀리는 문제 보정 */
+function nudge(){ requestAnimationFrame(function(){ window.scrollBy(0, 1); window.scrollBy(0, -1); }); }
+document.addEventListener('focusout', function(e){ if (e.target && /^(INPUT|TEXTAREA)$/.test(e.target.tagName)) setTimeout(nudge, 60); });
+if (window.visualViewport) window.visualViewport.addEventListener('resize', function(){ setTimeout(nudge, 60); });
 renderAll();
 })();
 </script>
